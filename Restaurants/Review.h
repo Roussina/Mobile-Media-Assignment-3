@@ -20,6 +20,8 @@
     
 }
 
+-(float)helpfulPercentage;
+
 @property(readwrite, strong) NSString* reviewerName;
 @property(readwrite, strong) NSString* text;
 @property(readwrite) int score;
