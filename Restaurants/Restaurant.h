@@ -17,6 +17,8 @@
     int numberOfHelpfulRatings;
     int numberOfUnhelpfulRatings;
     
+    NSArray* reviews;
+    
     
 }
 
@@ -29,6 +31,8 @@
 @property(readwrite) int score;
 @property(readwrite) int numberOfHelpfulRatings;
 @property(readwrite) int numberOfUnhelpfulRatings;
+
+@property(readwrite, strong) NSArray* reviews;
 
 -(int)age;
 
