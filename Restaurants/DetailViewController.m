@@ -85,6 +85,9 @@
     [self setAgeLabel:nil];
     [self setHelpfulReviewPercentageLabel:nil];
     [self setHelpfulReviewLabel:nil];
+    
+    [self mostHelpfulReviewLabel];
+    
     [self setStar1:nil];
     [self setStar2:nil];
     [self setStar3:nil];
