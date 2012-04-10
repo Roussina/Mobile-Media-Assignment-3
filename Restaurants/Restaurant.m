@@ -19,12 +19,12 @@
     Review* mostHelpfulReview = nil;
     
     for(Review* review in reviews){
-        if (review.numberOfHelpfulReviews > 4) {
+        if (review.numberOfHelpfulRatings > 4) {
             if (mostHelpfulReview == nil){
                 mostHelpfulReview = review;
             }
             
-            if (review.percentage > mostHelpfulReview.percentage){
+            if (review > mostHelpfulReview){
                 mostHelpfulReview = review;
             }
         }

@@ -13,6 +13,7 @@
 @synthesize ageLabel;
 @synthesize helpfulReviewPercentageLabel;
 @synthesize helpfulReviewLabel;
+@synthesize mostHelpfulReviewLabel;
 @synthesize star1;
 @synthesize star2;
 @synthesize star3;
