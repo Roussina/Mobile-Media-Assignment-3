@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *helpfulReviewLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mostHelpfulReviewLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel * bestReviewLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *star1;
 @property (weak, nonatomic) IBOutlet UIImageView *star2;
 @property (weak, nonatomic) IBOutlet UIImageView *star3;

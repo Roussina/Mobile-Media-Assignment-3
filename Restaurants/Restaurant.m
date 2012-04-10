@@ -7,7 +7,7 @@
 
 
 @implementation Restaurant
-@synthesize address, name, cuisineType, yearOpened, reviewerName, score, text, numberOfHelpfulRatings, numberOfUnhelpfulRatings, reviews;
+@synthesize address, name, cuisineType, yearOpened, reviewerName, score, text, numberOfHelpfulRatings, numberOfUnhelpfulRatings, reviews, bestReview;
 
 
 -(int)age
@@ -24,7 +24,7 @@
                 mostHelpfulReview = review;
             }
             
-            if (review > mostHelpfulReview){
+            if ([review helpfulPercentage] > [mostHelpfulReview helpfulPercentage]){
                 mostHelpfulReview = review;
             }
         }
