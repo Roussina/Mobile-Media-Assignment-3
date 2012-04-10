@@ -65,8 +65,10 @@
     review4.numberOfHelpfulRatings = 14;
     review4.numberOfUnhelpfulRatings = 5;
     
+    Review* bestReview = [restaurant mostHelpfulReview];
     
-
+    
+    
     addressLabel.text = [restaurant address];
     navigationHeader.title = [restaurant name];
     cuisineLabel.text = [restaurant cuisineType];
