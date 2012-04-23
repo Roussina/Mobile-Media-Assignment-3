@@ -5,82 +5,86 @@
 //
 
 #import "DetailViewController.h"
+#import "ReviewViewController.h"
 
 @implementation DetailViewController
+
 @synthesize addressLabel;
 @synthesize navigationHeader;
 @synthesize cuisineLabel;
 @synthesize ageLabel;
 @synthesize helpfulReviewPercentageLabel;
 @synthesize helpfulReviewLabel;
-@synthesize mostHelpfulReviewLabel;
-@synthesize bestReviewLabel;
+
 @synthesize star1;
 @synthesize star2;
 @synthesize star3;
 @synthesize star4;
 @synthesize star5;
 
+@synthesize reviewLabel;
+@synthesize restaurant;
+@synthesize showAllReviews;
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    restaurant = [[Restaurant alloc] init];
-    
-    restaurant.name = @"Pio Pio";
-    restaurant.address = @"746 First Avenue\nNew York, NY 10128";
-    restaurant.cuisineType = @"Peruvian";
-    restaurant.yearOpened = 1995;
-    
-
-    Review* review1 = [[Review alloc] init];
-    review1.text = @"What fab-u-lass chicken! We could eat it all day if we didn't have to stop to drink sangria!";
-    review1.reviewerName = @"The Addams";
-    review1.score = 5;
-    review1.numberOfHelpfulRatings = 19;
-    review1.numberOfUnhelpfulRatings = 8;
-    
-    
-    
-    Review* review2 = [[Review alloc] init];
-    review2.text = @"I DONE POSTED ON DA INTARWEBS!";
-    review2.reviewerName = @"Anonymous";
-    review2.score = 1;
-    review2.numberOfHelpfulRatings = 0;
-    review2.numberOfUnhelpfulRatings = 45;
-    
-    
-    Review* review3 = [[Review alloc] init];
-    review3.text = @"Some of the best chicken I've ever eaten. A helpful tip: get some green (Aji) sauce to go, they sell it by the pint!";
-    review3.reviewerName = @"Jim Carr";
-    review3.score = 5;
-    review3.numberOfHelpfulRatings = 28;
-    review3.numberOfUnhelpfulRatings = 2;
-    
-    Review* review4 = [[Review alloc] init];
-    review4.text = @"While the food is amazing, they often simply don't pick up the phone when ordering out!";
-    review4.reviewerName = @"Paul";
-    review4.score = 4;
-    review4.numberOfHelpfulRatings = 14;
-    review4.numberOfUnhelpfulRatings = 5;
-    
-    Review* bestReview = [restaurant mostHelpfulReview];
-    
-    
     
     addressLabel.text = [restaurant address];
     navigationHeader.title = [restaurant name];
     cuisineLabel.text = [restaurant cuisineType];
     ageLabel.text = [NSString stringWithFormat:@"Est. %i (%i years ago)", restaurant.yearOpened, [restaurant age]];
-    helpfulReviewLabel.text = [NSString stringWithFormat:@"%@ - %@", review1.text, review1.reviewerName];
-    helpfulReviewPercentageLabel.text = [NSString stringWithFormat:@"%i of %i found this review helpful.", review1.numberOfHelpfulRatings, review1.numberOfUnhelpfulRatings+review1.numberOfHelpfulRatings];
     
     
-    restaurant.reviews = [[NSArray alloc] initWithObjects:review1, review2, review3,review4, nil];
+    if ([restaurant averageCustomerReview]<1.7) {
+        star1.image = [UIImage imageNamed:@"Star_ON.png"];
+    }
+    if (1.7<[restaurant averageCustomerReview]<2.7) {
+        star1.image = [UIImage imageNamed:@"Star_ON.png"];
+        star2.image = [UIImage imageNamed:@"Star_ON.png"];
+    }
+    if (2.7<[restaurant averageCustomerReview]<3.7) {
+        star1.image = [UIImage imageNamed:@"Star_ON.png"];
+        star2.image = [UIImage imageNamed:@"Star_ON.png"];
+        star3.image = [UIImage imageNamed:@"Star_ON.png"];
+    }
+    if (3.7<[restaurant averageCustomerReview]<4.7) {
+        star1.image = [UIImage imageNamed:@"Star_ON.png"];
+        star2.image = [UIImage imageNamed:@"Star_ON.png"];
+        star3.image = [UIImage imageNamed:@"Star_ON.png"];
+        star4.image = [UIImage imageNamed:@"Star_ON.png"];
+    }
+    if ([restaurant averageCustomerReview] > 4.7) {
+        star1.image = [UIImage imageNamed:@"Star_ON.png"];
+        star2.image = [UIImage imageNamed:@"Star_ON.png"];
+        star3.image = [UIImage imageNamed:@"Star_ON.png"];
+        star4.image = [UIImage imageNamed:@"Star_ON.png"];
+        star5.image = [UIImage imageNamed:@"Star_ON.png"];
+    }
+    
+    //creating a best review to hold the return of the method in restaurant 
+    Review* bestReview = [restaurant mostHelpfulReview];
+    
+    if (bestReview.numberOfHelpfulRatings<5) {
+        helpfulReviewLabel.text = [NSString stringWithFormat:@"There are not enough ratings yet"];
+    }
+    if (bestReview.numberOfHelpfulRatings>=5) {
+        helpfulReviewLabel.text = [NSString stringWithFormat:@" %@ --%@", bestReview.text, bestReview.reviewer];
+        helpfulReviewPercentageLabel.text = [NSString stringWithFormat:@"**Most helpful review -- %i of %i found this review helpful", bestReview.numberOfHelpfulRatings, bestReview.numberOfunhelpfulRatings + bestReview.numberOfHelpfulRatings];
+    }
+    
     
 }
 
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    ReviewViewController* reviewVC = (ReviewViewController*)[segue destinationViewController];
+    
+    reviewVC.restaurant = restaurant;
+    
+}
 
 - (void)viewDidUnload
 {
@@ -90,14 +94,13 @@
     [self setAgeLabel:nil];
     [self setHelpfulReviewPercentageLabel:nil];
     [self setHelpfulReviewLabel:nil];
-    
-    [self mostHelpfulReviewLabel];
-    
     [self setStar1:nil];
     [self setStar2:nil];
     [self setStar3:nil];
     [self setStar4:nil];
     [self setStar5:nil];
+    [self setReviewLabel:nil];
+    [self setShowAllReviews:nil];
     [super viewDidUnload];
 }
 

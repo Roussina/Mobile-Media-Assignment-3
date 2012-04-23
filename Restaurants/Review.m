@@ -6,15 +6,32 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+
 #import "Review.h"
 
 @implementation Review
-@synthesize reviewerName, score, text, numberOfHelpfulRatings, numberOfUnhelpfulRatings;
+@synthesize reviewer, text, score, numberOfHelpfulRatings, numberOfunhelpfulRatings;
 
--(float)helpfulPercentage
+-(id)init
 {
-    return (float)numberOfHelpfulRatings/((float)numberOfHelpfulRatings + (float)numberOfUnhelpfulRatings);
+    self = [super init];
+    if(self)
+    {
+        
+    }
+    return self;
+}
+-(float)helpfulPercentage{
+    
+    float percentage;
+    percentage = numberOfHelpfulRatings/ (numberOfHelpfulRatings + numberOfunhelpfulRatings);
+    return percentage;
 }
 
+-(int)totalReviewRating{
+    int totalReviewRatings = numberOfHelpfulRatings + numberOfunhelpfulRatings;
+    return totalReviewRatings;
+}
 
 @end
+

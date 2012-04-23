@@ -6,27 +6,28 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+
+
 #import <Foundation/Foundation.h>
 
 @interface Review : NSObject
-
 {
-    
     NSString* reviewerName;
     NSString* text;
-    int score; //(1 to 5, how good the reviewer thought the restaurant was)
+    
+    int score;
     int numberOfHelpfulRatings;
     int numberOfUnhelpfulRatings;
-    
 }
 
--(float)helpfulPercentage;
-
-@property(readwrite, strong) NSString* reviewerName;
 @property(readwrite, strong) NSString* text;
+@property(readwrite, strong) NSString* reviewer;
 @property(readwrite) int score;
 @property(readwrite) int numberOfHelpfulRatings;
-@property(readwrite) int numberOfUnhelpfulRatings;
+@property(readwrite) int numberOfunhelpfulRatings;
 
+-(float)helpfulPercentage;
+-(int)totalReviewRating;
 
 @end
+

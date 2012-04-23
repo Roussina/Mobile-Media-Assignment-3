@@ -3,11 +3,13 @@
 //  Restaurants
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "Review.h"
 
 @interface Restaurant : NSObject
 {
+    
     NSString* address;
     NSString* name;
     NSString* cuisineType;

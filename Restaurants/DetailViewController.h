@@ -7,6 +7,7 @@
 #import <UIKit/UIKit.h>
 #import "Restaurant.h"
 #import "Review.h"
+#import "ReviewViewController.h"
 
 @interface DetailViewController : UIViewController
 {
@@ -19,14 +20,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *ageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *helpfulReviewPercentageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *helpfulReviewLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mostHelpfulReviewLabel;
-
-@property (weak, nonatomic) IBOutlet UILabel * bestReviewLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *star1;
 @property (weak, nonatomic) IBOutlet UIImageView *star2;
 @property (weak, nonatomic) IBOutlet UIImageView *star3;
 @property (weak, nonatomic) IBOutlet UIImageView *star4;
 @property (weak, nonatomic) IBOutlet UIImageView *star5;
+@property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
+@property(readwrite, strong) Restaurant* restaurant;
+@property (weak, nonatomic) IBOutlet UIButton *showAllReviews;
+
 
 @end
