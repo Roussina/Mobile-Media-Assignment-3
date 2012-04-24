@@ -1,10 +1,6 @@
 //
 //  Review.h
 //  Restaurants
-//
-//  Created by Roussina Valkova on 4/2/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
 
 
 
@@ -25,6 +21,7 @@
 @property(readwrite) int score;
 @property(readwrite) int numberOfHelpfulRatings;
 @property(readwrite) int numberOfunhelpfulRatings;
+@property(readwrite) int averageCustomerReview;
 
 -(float)helpfulPercentage;
 -(int)totalReviewRating;

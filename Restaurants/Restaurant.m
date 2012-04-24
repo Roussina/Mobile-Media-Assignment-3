@@ -33,4 +33,16 @@
     return mostHelpfulReview;
 }
 
+-(float)averageCustomerReview{
+    int sum = 0;
+    
+    for(Review* number in reviews){
+        sum += [number score];
+    
+    }
+    return (float) sum/[reviews count];
+    }
+
+
+
 @end

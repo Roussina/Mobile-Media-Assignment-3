@@ -42,7 +42,7 @@
     review1.numberOfunhelpfulRatings = 8;
     //    
     Review* review2 = [[Review alloc] init];
-    review2.text = @"I DONE POSTED ON DA INTARWEBS!";
+    review2.text = @"This is a second review for another restaurant. I am not sharing my name in public space.";
     review2.reviewer = @"Anonymous";
     review2.score = 1;
     review2.numberOfHelpfulRatings = 0;
@@ -63,8 +63,8 @@
     review4.numberOfunhelpfulRatings = 5;
     
     Review* review5 = [[Review alloc] init];
-    review5.text = @"Nothing beats good southern breakfast of Fried Chicken 'n Waffles";
-    review5.reviewer = @"Michelle";
+    review5.text = @"The best is the Shopska Salad in the Salad Palace.";
+    review5.reviewer = @"Rou";
     review5.score = 4;
     review5.numberOfHelpfulRatings = 10;
     review5.numberOfunhelpfulRatings = 2;
@@ -75,8 +75,8 @@
     //restaurant.reviews =[addObject: review5];
     
     Restaurant* no7 = [[Restaurant alloc] init];
-    no7.name = @"No. 7";
-    no7.address = @"Fort Greene, Brooklyn";
+    no7.name = @"Bare Burger";
+    no7.address = @"Astoria, Queens";
     no7.cuisineType = @"Experimental American";
     no7.yearOpened = 2001;
     
