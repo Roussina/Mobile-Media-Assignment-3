@@ -20,6 +20,8 @@
 		0EE5A6E714BEB491006BB5E1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE5A6E514BEB491006BB5E1 /* MainStoryboard.storyboard */; };
 		0EE5A6EA14BEB491006BB5E1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE5A6E914BEB491006BB5E1 /* MasterViewController.m */; };
 		0EE5A6ED14BEB491006BB5E1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE5A6EC14BEB491006BB5E1 /* DetailViewController.m */; };
+		FB13BDF2154F533C00108A29 /* heart-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = FB13BDF1154F533C00108A29 /* heart-selected.png */; };
+		FB13BDF5154F534D00108A29 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = FB13BDF4154F534D00108A29 /* heart.png */; };
 		FBCC3CB9153CEB3B00157617 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCC3CB8153CEB3B00157617 /* ReviewViewController.m */; };
 		FBD2726B152A8F1C00E01520 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD2726A152A8F1C00E01520 /* Review.m */; };
 /* End PBXBuildFile section */
@@ -46,6 +48,8 @@
 		0EE5A6E914BEB491006BB5E1 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MasterViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0EE5A6EB14BEB491006BB5E1 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DetailViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0EE5A6EC14BEB491006BB5E1 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		FB13BDF1154F533C00108A29 /* heart-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-selected.png"; sourceTree = "<group>"; };
+		FB13BDF4154F534D00108A29 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		FBCC3CB7153CEB3B00157617 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		FBCC3CB8153CEB3B00157617 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		FBD27269152A8F1C00E01520 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		0E6F215314F9FDFC004F682D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FB13BDF1154F533C00108A29 /* heart-selected.png */,
+				FB13BDF4154F534D00108A29 /* heart.png */,
 				0E6F215414F9FE0F004F682D /* Star_OFF.png */,
 				0E6F215514F9FE0F004F682D /* Star_ON.png */,
 			);
@@ -191,6 +197,8 @@
 				0EE5A6E714BEB491006BB5E1 /* MainStoryboard.storyboard in Resources */,
 				0E6F215614F9FE0F004F682D /* Star_OFF.png in Resources */,
 				0E6F215714F9FE0F004F682D /* Star_ON.png in Resources */,
+				FB13BDF2154F533C00108A29 /* heart-selected.png in Resources */,
+				FB13BDF5154F534D00108A29 /* heart.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -149,7 +149,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Restaurant Name" id="26"/>
+                    <navigationItem key="navigationItem" title="Restaurant Name" id="26">
+                        <barButtonItem key="rightBarButtonItem" title="Heart" id="cFJ-xX-n63">
+                            <connections>
+                                <action selector="doSomething:" destination="21" id="jR5-7t-OQJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="27" id="p4K-yi-X5k"/>
                         <outlet property="ageLabel" destination="tVm-OC-esT" id="At5-Wf-HEU"/>
