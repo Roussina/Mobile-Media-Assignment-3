@@ -44,4 +44,5 @@
 -(float) averageCustomerReview;
 -(BOOL) isFavorite;
 
+
 @end

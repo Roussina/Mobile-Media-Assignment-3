@@ -26,7 +26,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *star3;
 @property (weak, nonatomic) IBOutlet UIImageView *star4;
 @property (weak, nonatomic) IBOutlet UIImageView *star5;
+
+
 - (IBAction)doSomething:(id)markAsFavorite;
+
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *favoriteButton;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
 @property(readwrite, strong) Restaurant* restaurant;

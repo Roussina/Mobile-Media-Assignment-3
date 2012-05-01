@@ -22,6 +22,7 @@
 @synthesize star4;
 @synthesize star5;
 
+@synthesize favoriteButton;
 @synthesize reviewLabel;
 @synthesize restaurant;
 @synthesize showAllReviews;
@@ -101,6 +102,7 @@
     [self setStar5:nil];
     [self setReviewLabel:nil];
     [self setShowAllReviews:nil];
+    [self setFavoriteButton:nil];
     [super viewDidUnload];
 }
 
@@ -131,6 +133,8 @@
 }
 
 
-- (IBAction)doSomething:(id)sender {
+- (IBAction)doSomething:(id)markAsFavorite {
 }
+
+
 @end
