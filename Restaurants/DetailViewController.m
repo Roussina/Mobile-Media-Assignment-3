@@ -8,24 +8,22 @@
 #import "ReviewViewController.h"
 
 @implementation DetailViewController
-
 @synthesize addressLabel;
 @synthesize navigationHeader;
 @synthesize cuisineLabel;
 @synthesize ageLabel;
 @synthesize helpfulReviewPercentageLabel;
 @synthesize helpfulReviewLabel;
-
 @synthesize star1;
 @synthesize star2;
 @synthesize star3;
 @synthesize star4;
 @synthesize star5;
-
-@synthesize favoriteButton;
 @synthesize reviewLabel;
 @synthesize restaurant;
 @synthesize showAllReviews;
+@synthesize favoriteButton;
+@synthesize bestReview;
 
 #pragma mark - View lifecycle
 
@@ -66,7 +64,7 @@
     }
     
     //creating a best review to hold the return of the method in restaurant 
-    Review* bestReview = [restaurant mostHelpfulReview];
+    bestReview = [restaurant mostHelpfulReview];
     
     if (bestReview.numberOfHelpfulRatings<5) {
         helpfulReviewLabel.text = [NSString stringWithFormat:@"There are not enough ratings yet"];
@@ -75,8 +73,6 @@
         helpfulReviewLabel.text = [NSString stringWithFormat:@" %@ --%@", bestReview.text, bestReview.reviewer];
         helpfulReviewPercentageLabel.text = [NSString stringWithFormat:@"**Most helpful review -- %i of %i found this review helpful", bestReview.numberOfHelpfulRatings, bestReview.numberOfunhelpfulRatings + bestReview.numberOfHelpfulRatings];
     }
-    
-    
 }
 
 
@@ -84,6 +80,7 @@
     ReviewViewController* reviewVC = (ReviewViewController*)[segue destinationViewController];
     
     reviewVC.restaurant = restaurant;
+    reviewVC.bestReview = bestReview;
     
 }
 
@@ -105,6 +102,7 @@
     [self setFavoriteButton:nil];
     [super viewDidUnload];
 }
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -132,9 +130,12 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-
-- (IBAction)doSomething:(id)markAsFavorite {
+- (IBAction)markAsFavorite:(id)sender {
+    restaurant.isFavorite = !restaurant.isFavorite;
+    if (restaurant.isFavorite){
+        favoriteButton.image = [UIImage imageNamed:@"heart-selected.png"];
+    }else{
+        favoriteButton.image = [UIImage imageNamed:@"heart.png"];
+    }
 }
-
-
 @end

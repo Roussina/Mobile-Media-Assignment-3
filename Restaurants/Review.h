@@ -21,7 +21,6 @@
 @property(readwrite) int score;
 @property(readwrite) int numberOfHelpfulRatings;
 @property(readwrite) int numberOfunhelpfulRatings;
-@property(readwrite) int averageCustomerReview;
 
 -(float)helpfulPercentage;
 -(int)totalReviewRating;

@@ -8,12 +8,13 @@
 
 @implementation ReviewViewController
 @synthesize restaurant;
+@synthesize bestReview;
 
--(id)initWithStyle:(UITableViewStyle)style
+- (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        
+        // Custom initialization
     }
     return self;
 }
@@ -21,12 +22,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void) viewDidUnload
+- (void)viewDidUnload
 {
     [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -48,6 +63,10 @@
     UILabel* reviewTextLabel = (UILabel*)[cell viewWithTag:1];
     UILabel* reviewHelpfulnessLabel = (UILabel*)[cell viewWithTag:2];
     Review* reviewForIndexPath = [restaurant.reviews objectAtIndex:indexPath.row];
+    
+    if (reviewForIndexPath == bestReview) {
+        
+    }
     reviewTextLabel.text = reviewForIndexPath.text;
     reviewHelpfulnessLabel.text = [NSString stringWithFormat:@"%i of %i found this review helpful", reviewForIndexPath.numberOfHelpfulRatings,reviewForIndexPath.numberOfHelpfulRatings + reviewForIndexPath.numberOfunhelpfulRatings];
     return cell;
@@ -110,3 +129,4 @@
 }
 
 @end
+

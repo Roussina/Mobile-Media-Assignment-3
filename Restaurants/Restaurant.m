@@ -4,44 +4,70 @@
 //
 
 #import "Restaurant.h"
-
+#import "Review.h"
 
 @implementation Restaurant
-@synthesize address, name, cuisineType, yearOpened, reviewerName, score, text, numberOfHelpfulRatings, numberOfUnhelpfulRatings, reviews, bestReview;
+@synthesize address, name, cuisineType, yearOpened, reviews, isFavorite;
 
+-(id)init{
+    self = [super init];
+    if(self){
+    }
+    return self;
+}
+//--------------------------------------------------------------
 
 -(int)age
 {
     return 2012 - yearOpened;
-    }
+}
+//--------------------------------------------------------------
 
--(Review*) mostHelpfulReview{
-    Review* mostHelpfulReview = nil;
-    
-    for(Review* review in reviews){
-        if (review.numberOfHelpfulRatings > 4) {
-            if (mostHelpfulReview == nil){
-                mostHelpfulReview = review;
-            }
-            
-            if ([review helpfulPercentage] > [mostHelpfulReview helpfulPercentage]){
-                mostHelpfulReview = review;
+-(Review*) mostHelpfulReview
+{
+    int ratingCount;    
+    for (int i=0; i< reviews.count; i++) 
+    {
+        Review* review = [reviews objectAtIndex: i ];
+        if (review.numberOfHelpfulRatings > 5) {
+            if (review.numberOfHelpfulRatings > ratingCount) 
+            {
+                ratingCount = review.numberOfHelpfulRatings;
+                bestReview = review;
             }
         }
+        
     }
-    NSLog (@"Review text:%@", mostHelpfulReview.text);
-    return mostHelpfulReview;
+    return bestReview;
+}
+//--------------------------------------------------------------
+
+-(float)averageCustomerReview
+{
+    float reviewAvgTotal;
+    float reviewAvg;
+    for (int i=0; i < reviews.count; i++) 
+    {
+        Review* review = [reviews objectAtIndex: i ];
+        
+        reviewAvgTotal += review.score;
+    }
+    reviewAvg = reviewAvgTotal/reviews.count;
+    return reviewAvg;
+    
+}
+//--------------------------------------------------------------
+
+-(int) totalReview    
+{
+    int totalReviewCount;
+    
+    totalReviewCount = bestReview.numberOfHelpfulRatings + bestReview.numberOfunhelpfulRatings;
+    
+    return totalReviewCount;
 }
 
--(float)averageCustomerReview{
-    int sum = 0;
-    
-    for(Review* number in reviews){
-        sum += [number score];
-    
-    }
-    return (float) sum/[reviews count];
-    }
+//--------------------------------------------------------------
 
 
 

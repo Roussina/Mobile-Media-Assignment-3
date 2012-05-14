@@ -7,7 +7,7 @@
 #import "Review.h"
 
 @implementation Review
-@synthesize reviewer, text, score, numberOfHelpfulRatings, numberOfunhelpfulRatings, averageCustomerReview;
+@synthesize reviewer, text, score, numberOfHelpfulRatings, numberOfunhelpfulRatings;
 
 -(id)init
 {
